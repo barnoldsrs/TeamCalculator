@@ -21,7 +21,7 @@ public class Main {
         keys = new Scanner(System.in);
         String userRsp;
         boolean keepGoing = true;
-        double result = 0;
+        double result = +0;
 
         System.out.println("Welcome to the Team-Developed Calculator");
 
@@ -44,17 +44,17 @@ public class Main {
                                                                     //Accessed with "*"
 
 
-            } else if (userRsp.equals("^")){
+            } else if (userRsp.equals("p2")){
                 result = goSquare();                                //The square function on the calculator
                                                                     //Accessed with "^"
 
 
-            } else if (userRsp.equals("o")){
+            } else if (userRsp.equals("ac")){
                 result = goCircArea();                              //The area of a circle function
                                                                     //Accessed with "o"
 
 
-            } else if (userRsp.equals("%")){
+            } else if (userRsp.equals("mod")){
                 result = goModulo();                                //The Modulo function of the calculator
                                                                     //Accessed with "%"
 
