@@ -11,6 +11,7 @@
 
 
 import java.util.Scanner;
+import java.lang.Math;
 
 public class Main {
 
@@ -39,11 +40,17 @@ public class Main {
                                                                     // as a double.  Later operators
                                                                     // may require these methods to return
                                                                     // a String, like for logical operators
-            else if (userRsp.equals("*")) {
+
+            else if(userRsp.equals("-")) {                          //The subtract function on the calculator
+                result = goSubtract();                              //Accessed with "-"
+
+            }else if (userRsp.equals("*")) {
                 result = goMultiply();                              //The multiply function on the calculator
                                                                     //Accessed with "*"
 
-
+            }else if(userRsp.equals("/")){
+                result = goDivide();                                //The divide function on the calculator
+                                                                    //Accessed with "/"
             } else if (userRsp.equals("p2")){
                 result = goSquare();                                //The square function on the calculator
                                                                     //Accessed with "^"
@@ -54,10 +61,17 @@ public class Main {
                                                                     //Accessed with "o"
 
 
-            } else if (userRsp.equals("mod")){
+            } else if (userRsp.equals("mod")) {
                 result = goModulo();                                //The Modulo function of the calculator
-                                                                    //Accessed with "%"
+                                                                    // Accessed with "%"
 
+            }else if(userRsp.equals("sqrt")) {
+                result = goSquareRoot();                            //The Square root funtion of the calculator
+                                                                    //Accessed with "sqrt"
+
+            }else if(userRsp.equals("vs")){
+                result = goVolumeSphere();                          //The volume of a sphere funtion of the calculator
+                                                                    // Accessed with "vs"
 
             } else {
                 result = 0.0;
@@ -84,6 +98,18 @@ public class Main {
         return resultAdd;
     }
 
+    private static double goSubtract()
+    {
+        double resultSubtract;
+        double operand1 = 0;
+        double operand2 = 0;
+        System.out.println("Please enter the two operands, separated by a space: ");
+        operand1 = keys.nextDouble();
+        operand2 = keys.nextDouble();
+        resultSubtract = operand1 - operand2;
+        return resultSubtract;
+    }
+
     private static double goMultiply()
     {
         double resultMultiply;
@@ -94,6 +120,17 @@ public class Main {
         operand2 = keys.nextDouble();
         resultMultiply = operand1 * operand2;
         return resultMultiply;
+    }
+
+    public static double goDivide(){
+        double resultDivide;
+        double operand1 = 0;
+        double operand2 = 0;
+        System.out.println("Please enter the two operands, separated by a space: ");
+        operand1 = keys.nextDouble();
+        operand2 = keys.nextDouble();
+        resultDivide = operand1 / operand2;
+        return resultDivide;
     }
 
     private static double goSquare() {
@@ -125,6 +162,23 @@ public class Main {
         return resultModulo;
     }
 
+    private static double goSquareRoot(){
+        double resultSquareRoot;
+        double operand1 = 0;
+        System.out.println("Please enter the operand: ");
+        operand1 = keys.nextDouble();
+        resultSquareRoot = Math.sqrt(operand1);
+        return resultSquareRoot;
+    }
+
+    private static double goVolumeSphere(){
+        double resultVS;
+        double operand1 = 0;
+        System.out.println("Please enter the radius of the sphere: ");
+        operand1 = keys.nextDouble();
+        resultVS = (4/(double) 3) * 3.14159265359 * Math.pow(operand1, (double)3);
+        return resultVS;
+    }
         private static void showMenu()
     {
         System.out.println("Menu goes here.  Enter 'q' to quit. ");
