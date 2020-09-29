@@ -23,18 +23,27 @@ public class Main {
         String userRsp;
         boolean keepGoing = true;
         double result = +0;
+        Boolean ranHelp = false;
 
-        System.out.println("Welcome to the Team-Developed Calculator");
+        System.out.println("Welcome to the Team-Developed Calculator.");
 
         while (keepGoing == true)
         {
+            ranHelp = false;
             showMenu();                     // show the choices, ask for operator (+, -, *, etc.)
             userRsp = keys.nextLine();      //
             if (userRsp.equals("q")) {
                 keepGoing = false;
                 continue;
             }
+
             System.out.println("You entered: [" + userRsp + "]");   // debug
+
+            if(userRsp.equals("help") || userRsp.equals("Help")){
+                runHelp();                                          // view the help menu
+                ranHelp = true;                                     // shows available operators
+            }
+
             if (userRsp.equals("+"))                                // entered ADD
                 result = goAdd();                                   // do the ADD and return the result
                                                                     // as a double.  Later operators
@@ -77,10 +86,10 @@ public class Main {
                 result = 0.0;
             }
 
-            System.out.printf("Result is: [%.4f]\n", result );      // print the result
-            keys.nextLine();                                        // have to flush the buffer
-
-
+            if(!ranHelp) {
+                System.out.printf("Result is: [%.4f]\n", result);      // print the result
+            }
+            keys.nextLine();                                       // have to flush the buffer
 
         }
         System.out.println("\nThank you and b'bye...");
@@ -179,9 +188,24 @@ public class Main {
         resultVS = (4/(double) 3) * 3.14159265359 * Math.pow(operand1, (double)3);
         return resultVS;
     }
+
+    private static void runHelp(){
+        System.out.println("Available functions for the calculator:");
+        System.out.println("+ :: Add");
+        System.out.println("- :: Subtract");
+        System.out.println("* :: Multiply");
+        System.out.println("/ :: Divide");
+        System.out.println("p2 :: square value");
+        System.out.println("sqrt :: square root value");
+        System.out.println("ac :: area of a circle");
+        System.out.println("vs :: volume of a sphere");
+        System.out.println("mod :: get modulus\n");
+        System.out.println("Press enter to continue.\n");
+    }
+
         private static void showMenu()
     {
-        System.out.println("Menu goes here.  Enter 'q' to quit. ");
+        System.out.println("Type 'help' for instructions.  Enter 'q' to quit. ");
 
     }
 
