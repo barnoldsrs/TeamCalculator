@@ -42,9 +42,11 @@ public class Main {
             if(userRsp.equals("help") || userRsp.equals("Help")){
                 runHelp();                                          // view the help menu
                 ranHelp = true;                                     // shows available operators
-            }
+            }else if(userRsp.equals("mc")){
+                moreCowbell();
+                ranHelp = true;
 
-            if (userRsp.equals("+"))                                // entered ADD
+            }else if (userRsp.equals("+"))                                // entered ADD
                 result = goAdd();                                   // do the ADD and return the result
                                                                     // as a double.  Later operators
                                                                     // may require these methods to return
@@ -201,6 +203,13 @@ public class Main {
         System.out.println("vs :: volume of a sphere");
         System.out.println("mod :: get modulus\n");
         System.out.println("Press enter to continue.\n");
+    }
+
+    private static void moreCowbell(){
+        for (int i = 0; i < 10; i++){
+            System.out.println("MORE COWBELL!");
+        }
+        System.out.println("\nPress enter to return to menu.");
     }
 
         private static void showMenu()
